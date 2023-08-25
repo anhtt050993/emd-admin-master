@@ -16,7 +16,7 @@ Nội dung:
 server {
 	listen 80;
 	listen [::]:80;
-		server_name example.com;				                 #Tên web truy cập vào LVREL'
+		server_name example.com;				                 #Tên web truy cập vào LVREL
 	   root /usr/share/nginx/emd-admin-master/public;		#Move code vào thư mục /usr/share/nginx
 
 	add_header X-Frame-Options "SAMEORIGIN";
@@ -36,7 +36,7 @@ server {
 	error_page 404 /index.php;
 
 	location ~ \.php$ {
-		fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;			#Tạo folder này để php-fpm work''**__#
+		fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;			#Tạo folder này để php-fpm work
 		fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
 		include fastcgi_params;
 	}
@@ -126,10 +126,10 @@ gpgcheck=1
 gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql#
 
 --------------------
-#yum install mysql-community-server-8.0.34								Install mysql#
-#service mysqld start													Start dich vụ#
-#grep "A temporary password" /var/log/mysqld.log						lấy password gen mặc định#
-#mysql_secure_installation												cài đặt secure cho mysql#
+#yum install mysql-community-server-8.0.34							#Install mysql
+#service mysqld start										#Start dich vụ
+#grep "A temporary password" /var/log/mysqld.log						#lấy password gen mặc định
+#mysql_secure_installation									#cài đặt secure cho mysql
 Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
 
 Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
@@ -138,15 +138,15 @@ Remove test database and access to it? (Press y|Y for Yes, any other key for No)
 
 Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
 #service mysqld restart
-#chkconfig mysqld on													#enable
-#mysql -u root -p														#đăng nhập
-mysql> show databases;												#check databases hiện có
+#chkconfig mysqld on												#enable
+#mysql -u root -p												#đăng nhập
+mysql> show databases;											#check databases hiện có
 mysql> CREATE DATABASE laravel;										#Tạo database tên laravelmysql> FLUSH PRIVILEGES;
 mysql> FLUSH PRIVILEGES;											#update quyền
 --------------------
 Cài php, php-fpm và các exentions
 #sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm	#Cài kho remi có các repo php mới#
-#yum install yum-utils -y												#Cài công cụ quản lý yum#
+#yum install yum-utils -y										#Cài công cụ quản lý yum#
 #sudo yum-config-manager --disable remi-php54							#Disabled kho php54#
 #sudo yum-config-manager --enable remi-php81							#enabled kho php 81#
 #yum install php php-fpm php-{zip,ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml,mysql}
@@ -161,8 +161,8 @@ Uncomment các dòng sau:
 ;listen.group = nginx
 ;listen.mode = 0660
 
-# cd /usr/share/nginx/emd-admin-master/public									vào thư muc chứa code lavarel#
-# vim test.php																Tạo file test php#
+# cd /usr/share/nginx/emd-admin-master/public						#vào thư muc chứa code lavarel
+# vim test.php											#Tạo file test php
 Nội dung: 
 <?php
 
@@ -170,17 +170,17 @@ phpinfo();
 
 ?>
 
-Truy cập vào  example.com/test.php 										#Check có hiển thị thông tin php là php có hoạt động
+Truy cập vào  example.com/test.php 							#Check có hiển thị thông tin php là php có hoạt động
 --------------------
 Cai composer ver mới:  https://linux.how2shout.com/how-to-install-composer-on-ubuntu-22-04-20-04-lts/
-#curl -sS https://getcomposer.org/installer -o composer-setup.php						Tải bộ cài composer về máy#
-#sudo php composer-setup.php --install-dir=/usr/bin --filename=composer				Cài composer bằng bộ cài vừa tải về#
+#curl -sS https://getcomposer.org/installer -o composer-setup.php					#Tải bộ cài composer về máy
+#sudo php composer-setup.php --install-dir=/usr/bin --filename=composer				#Cài composer bằng bộ cài vừa tải về
 hoặc:
 #sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-#composer --version																Check version composer#
+#composer --version											#Check version composer
 Cài đặt các gói phụ thuộc:
 #cd /usr/share/nginx/emd...										#thư mục chứa code
-# composer install --optimize-autoloader --prefer-dist --no-dev			(xoa file composer.lock- nếu có trước khi chạy lệnh này)
+# composer install --optimize-autoloader --prefer-dist --no-dev			#(xoa file composer.lock- nếu có trước khi chạy lệnh này)
 Cấu hình .env:
 # cp .env.example .env
 #vim .env
@@ -188,16 +188,16 @@ Chỉnh các thông số sau:
 ./pasted_image.png
 --------------------
 
-APP_NAME="Email Mass Delivery"							Tên hiển thị ( lưu ý sau khi đổi tên cần chạy lệnh xóa cache php artisan config:cache)#
-APP_URL=http://example.com								#Link web lavarel
-DB_CONNECTION=mysql										#Điền các thông số để kết nối vào database
+APP_NAME="Email Mass Delivery"				#Tên hiển thị ( lưu ý sau khi đổi tên cần chạy lệnh xóa cache php artisan config:cache)#
+APP_URL=http://example.com					#Link web lavarel
+DB_CONNECTION=mysql						#Điền các thông số để kết nối vào database
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel										#cần tạo database này trước
+DB_DATABASE=laravel						#cần tạo database này trước
 DB_USERNAME=root
-DB_PASSWORD=Lovingu1%									#pass có kí tự đặc biệt cần cho vào ""
+DB_PASSWORD=Lovingu1%						#pass có kí tự đặc biệt cần cho vào ""
 --------------------
-#cd /usr/share/nginx/emd-admin-master						vào thư mục chưa code#
+#cd /usr/share/nginx/emd-admin-master			#vào thư mục chưa code
 Generate an application key. Re-cache:
 # php artisan key:generate
 # php artisan config:cache
