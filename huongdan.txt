@@ -185,7 +185,7 @@ Cấu hình .env:
 # cp .env.example .env
 #vim .env
 Chỉnh các thông số sau:
-./pasted_image.png
+Link ảnh: (https://imgur.com/a/RPOsWBU)
 --------------------
 
 APP_NAME="Email Mass Delivery"				#Tên hiển thị ( lưu ý sau khi đổi tên cần chạy lệnh xóa cache php artisan config:cache)#
