@@ -1,4 +1,4 @@
-mdInstall EMD-ADminTool
+Install EMD-ADminTool
 
 Created Wednesday 26 July 2023
 Hướng dẫn deploy lavarel: https://laravel.com/docs/10.x/deployment
@@ -16,7 +16,7 @@ Nội dung:
 server {
 	listen 80;
 	listen [::]:80;
-		server_name example.com;				                 #Tên web truy cập vào LVREL
+		server_name example.com;				#Tên web truy cập vào LVREL
 	   root /usr/share/nginx/emd-admin-master/public;		#Move code vào thư mục /usr/share/nginx
 
 	add_header X-Frame-Options "SAMEORIGIN";
@@ -46,7 +46,7 @@ server {
 	}
 }
 #mkdir -p /var/run/php
-# chown -R nginx:nginx /usr/share/nginx/emd-admin-master							# Change own cho thư mục code
+# chown -R nginx:nginx /usr/share/nginx/emd-admin-master				# Change own cho thư mục code
 --------------------
 
 Cài mysql 8.       #  https://www.mysqltutorial.org/install-mysql-centos/
@@ -138,17 +138,17 @@ Remove test database and access to it? (Press y|Y for Yes, any other key for No)
 
 Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
 #service mysqld restart
-#chkconfig mysqld on												#enable
-#mysql -u root -p												#đăng nhập
-mysql> show databases;											#check databases hiện có
-mysql> CREATE DATABASE laravel;										#Tạo database tên laravelmysql> FLUSH PRIVILEGES;
-mysql> FLUSH PRIVILEGES;											#update quyền
+#chkconfig mysqld on										#enable
+#mysql -u root -p										#đăng nhập
+mysql> show databases;									#check databases hiện có
+mysql> CREATE DATABASE laravel;								#Tạo database tên laravelmysql> FLUSH PRIVILEGES;
+mysql> FLUSH PRIVILEGES;									#update quyền
 --------------------
 Cài php, php-fpm và các exentions
-#sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm	#Cài kho remi có các repo php mới#
-#yum install yum-utils -y										#Cài công cụ quản lý yum#
-#sudo yum-config-manager --disable remi-php54							#Disabled kho php54#
-#sudo yum-config-manager --enable remi-php81							#enabled kho php 81#
+#sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm			#Cài kho remi có các repo php mới#
+#yum install yum-utils -y									#Cài công cụ quản lý yum#
+#sudo yum-config-manager --disable remi-php54						#Disabled kho php54#
+#sudo yum-config-manager --enable remi-php81						#enabled kho php 81#
 #yum install php php-fpm php-{zip,ctype,curl,dom,fileinfo,filter,hash,mbstring,openssl,pcre,pdo,session,tokenizer,xml,mysql}
 #cài php, php-fpm và các extension 
 Sửa cấu hình php-fpm
@@ -173,13 +173,13 @@ phpinfo();
 Truy cập vào  example.com/test.php 							#Check có hiển thị thông tin php là php có hoạt động
 --------------------
 Cai composer ver mới:  https://linux.how2shout.com/how-to-install-composer-on-ubuntu-22-04-20-04-lts/
-#curl -sS https://getcomposer.org/installer -o composer-setup.php					#Tải bộ cài composer về máy
-#sudo php composer-setup.php --install-dir=/usr/bin --filename=composer				#Cài composer bằng bộ cài vừa tải về
+#curl -sS https://getcomposer.org/installer -o composer-setup.php				#Tải bộ cài composer về máy
+#sudo php composer-setup.php --install-dir=/usr/bin --filename=composer			#Cài composer bằng bộ cài vừa tải về
 hoặc:
 #sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-#composer --version											#Check version composer
+#composer --version										#Check version composer
 Cài đặt các gói phụ thuộc:
-#cd /usr/share/nginx/emd...										#thư mục chứa code
+#cd /usr/share/nginx/emd...									#thư mục chứa code
 # composer install --optimize-autoloader --prefer-dist --no-dev			#(xoa file composer.lock- nếu có trước khi chạy lệnh này)
 Cấu hình .env:
 # cp .env.example .env
