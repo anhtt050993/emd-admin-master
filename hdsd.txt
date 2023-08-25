@@ -215,4 +215,4 @@ truy cập vào example.com/admin
 Cấu hình transport sang 1 instance mới
 cú pháp : "smtp:ip:port"
 Sau khi chỉnh transport cần update thông số của client
-./pasted_image002.png
+![ảnh](https://imgur.com/NIqcLlI)
