@@ -1,4 +1,4 @@
-Install EMD-ADminTool
+mdInstall EMD-ADminTool
 
 Created Wednesday 26 July 2023
 Hướng dẫn deploy lavarel: https://laravel.com/docs/10.x/deployment
